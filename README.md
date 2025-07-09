@@ -49,11 +49,13 @@ python main.py video.mp4 --setup-roi
 
 # ROI 편집기 시작 (마우스로 ROI 수정 가능)
 python main.py video.mp4 --edit-roi
+
 ```
 
 ### ROI (관심 영역) 설정
 
 #### 방법 1: 이미지 기반 설정 (기존 방법)
+
 1. ROI 설정 모드 실행:
 ```bash
 python main.py video.mp4 --setup-roi
