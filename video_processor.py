@@ -145,3 +145,14 @@ class VideoProcessor:
             print("config.py 파일에서 ROI_REGION_1, ROI_REGION_2 값을 조정하세요.")
         else:
             print("프레임을 읽을 수 없습니다.")
+    
+    def start_roi_editor(self):
+        """ROI 편집기 시작"""
+        try:
+            from video_roi_editor import VideoROIEditor
+            editor = VideoROIEditor(self.video_path, self.config)
+            editor.run()
+        except ImportError:
+            print("video_roi_editor.py 모듈을 찾을 수 없습니다.")
+        except Exception as e:
+            print(f"ROI 편집기 실행 중 오류 발생: {e}")

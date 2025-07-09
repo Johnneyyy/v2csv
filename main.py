@@ -13,6 +13,7 @@ def main():
     parser.add_argument('video_path', help='처리할 MP4 동영상 파일 경로')
     parser.add_argument('-o', '--output', help='출력 CSV 파일 경로 (기본값: extracted_numbers.csv)')
     parser.add_argument('--setup-roi', action='store_true', help='ROI 영역 설정 도움말 표시')
+    parser.add_argument('--edit-roi', action='store_true', help='ROI 편집기 시작 (마우스로 ROI 수정 가능)')
     parser.add_argument('--frame-skip', type=int, default=30, help='프레임 건너뛰기 간격 (기본값: 30)')
     parser.add_argument('--ocr-engine', choices=['easyocr', 'tesseract'], default='easyocr', 
                        help='사용할 OCR 엔진 선택 (기본값: easyocr)')
@@ -43,6 +44,14 @@ def main():
         print("2. 숫자가 나타나는 영역의 좌표를 측정하세요.")
         print("3. config.py 파일의 ROI_REGION_1, ROI_REGION_2 값을 수정하세요.")
         print("4. 형식: (x, y, width, height)")
+        return
+    
+    # ROI 편집기 시작
+    if args.edit_roi:
+        print("ROI 편집기 시작")
+        print("마우스로 ROI1, ROI2 영역을 드래그하여 위치를 수정할 수 있습니다.")
+        print("설정 완료 후 'S' 키를 눌러 저장하세요.")
+        processor.start_roi_editor()
         return
     
     try:

@@ -46,9 +46,15 @@ python main.py video.mp4 --frame-skip 60
 
 # ROI 영역 설정 도움말
 python main.py video.mp4 --setup-roi
+
+# ROI 편집기 시작 (마우스로 ROI 수정 가능)
+python main.py video.mp4 --edit-roi
+
 ```
 
 ### ROI (관심 영역) 설정
+
+#### 방법 1: 이미지 기반 설정 (기존 방법)
 
 1. ROI 설정 모드 실행:
 ```bash
@@ -61,6 +67,29 @@ python main.py video.mp4 --setup-roi
 ```python
 ROI_REGION_1 = (x1, y1, width1, height1)  # 첫 번째 숫자 영역
 ROI_REGION_2 = (x2, y2, width2, height2)  # 두 번째 숫자 영역
+```
+
+#### 방법 2: 대화형 ROI 편집기 (새로운 방법)
+1. ROI 편집기 시작:
+```bash
+python main.py video.mp4 --edit-roi
+```
+
+2. 동영상 재생 창에서 마우스로 ROI 영역 드래그하여 위치 수정
+
+3. 키보드 조작:
+   - `SPACE`: 재생/일시정지
+   - `R`: ROI 위치 초기화
+   - `S`: 현재 ROI 설정을 config.py에 저장
+   - `H`: 도움말 표시/숨기기
+   - `Q`: 종료
+
+4. 설정 완료 후 동영상 처리 실행
+
+#### 독립 실행 모드
+ROI 편집기를 독립적으로 실행하려면:
+```bash
+python video_roi_editor.py video.mp4
 ```
 
 ## 출력 형식

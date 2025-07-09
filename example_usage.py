@@ -46,6 +46,11 @@ def main():
         print("ROI 설정 확인 중...")
         processor.show_roi_setup()
         
+        # ROI 편집기 사용 예제 (주석 해제하여 사용)
+        # print("ROI 편집기를 사용하려면 다음 라인의 주석을 해제하세요:")
+        # processor.start_roi_editor()
+        # return  # ROI 편집기를 사용한 후 종료
+        
         # 동영상 처리
         print("동영상 처리 시작...")
         df = processor.process_video()
