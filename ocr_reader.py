@@ -58,7 +58,7 @@ class OCRReader:
                 else:
                     text = ""
             else:  # tesseract
-                text = pytesseract.image_to_string(processed_image, config=Config.TESSERACT_CONFIG)
+                text = pytesseract.image_to_string(processed_image, config=Config().TESSERACT_CONFIG)
             
             # 숫자만 추출
             numbers = re.findall(r'-?\d+\.?\d*', text.strip())
